@@ -44,14 +44,6 @@ jobs:
         run: |
           touch _build/.nojekyll
 
-      - name: Create CNAME file
-        run: |
-          if [ ! -z ${CNAME// } ]; then
-            echo ${CNAME} > _build/CNAME
-          fi
-        env:
-          CNAME: ${{ secrets.CNAME }}
-
       - name: Deploy documentation sphinx
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
